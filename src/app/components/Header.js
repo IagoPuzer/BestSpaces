@@ -41,9 +41,9 @@ export default function Header() {
                   Hero
                 </li>
               </Link>
-              <Link spy={true} smooth={true} to="Form">
+              <Link spy={true} smooth={true} to="MainSection">
                 <li className="hover:text-orange-300 transition border-b-2 border-cyan-800 hover:border-orange-300 cursor-pointer">
-                  Form
+                  Body
                 </li>
               </Link>
             </ul>

@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
-import Form from "./components/Form";
+import MainSection from "./components/MainSection";
 
 export default function Home() {
   return (
@@ -12,8 +12,8 @@ export default function Home() {
         <Hero />
       </div>
 
-      <div id="Form">
-        <Form />
+      <div id="MainSection">
+        <MainSection />
       </div>
 
       <Footer />

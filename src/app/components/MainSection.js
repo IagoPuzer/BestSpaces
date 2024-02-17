@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import CustomSelect from "./CustomSelect";
 import PokeCard from "./PokeCard";
 
-export default function Form() {
+export default function MainSection() {
   const [selectedOption1, setSelectedOption1] = useState("");
   const [selectedOption2, setSelectedOption2] = useState("");
   const [selectedOption3, setSelectedOption3] = useState("");
@@ -98,7 +98,7 @@ export default function Form() {
             className="text-sm leading-6 text-slate-400 resize-none flex-1 outline-none bg-white p-3 rounded-md"
           />
         </div>
-        <div className="container mx-auto mt-4">
+        <div className="mt-4">
           <h1 className="text-2xl font-bold mb-4">Selects</h1>
           <div className="grid grid-cols-2 gap-2">
             <CustomSelect
@@ -118,36 +118,38 @@ export default function Form() {
             />
           </div>
         </div>
-        <button
-          type="submit"
-          className="w-full bg-lime-400 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-lime-500 rounded-md mt-3"
-        >
-          Enviar para o console
-        </button>
-        <button
-          type="button"
-          onClick={handleClearForm}
-          className="w-full bg-lime-400 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-lime-500 rounded-md mt-3"
-        >
-          Limpar form
-        </button>
+        <div className="flex gap-x-4">
+          <button
+            type="submit"
+            className="w-full bg-slate-200 py-4 text-center text-sm text-slate-900 outline-none font-medium hover:bg-slate-300 rounded-md mt-3"
+          >
+            Enviar para o console
+          </button>
+          <button
+            type="button"
+            onClick={handleClearForm}
+            className="w-full bg-slate-200 py-4 text-center text-sm text-slate-900 outline-none font-medium hover:bg-slate-300 rounded-md mt-3"
+          >
+            Limpar form
+          </button>
+        </div>
       </form>
-      <div>
-        <button
-          type="button"
-          onClick={handleRandomPokemon}
-          className="w-full bg-lime-400 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-lime-500 rounded-md mt-3"
-        >
-          Selecionar Pokémon Aleatórios
-        </button>
+      <div className="mt-4 lg:mt-0">
         <div className="mb-4">
-          <h2 className="text-xl font-bold">Pokémon Aleatórios:</h2>
-          <div>
+          <h2 className="text-xl font-bold p-2">Sua equipe Pokemon:</h2>
+          <div className="flex justify-between">
             {pokemonData.map((pokemon, index) => (
               <PokeCard key={pokemon.id} pokemon={pokemon} />
             ))}
           </div>
         </div>
+        <button
+          type="button"
+          onClick={handleRandomPokemon}
+          className="w-full bg-slate-200 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-slate-300 rounded-md mt-3"
+        >
+          Selecione sua equipe
+        </button>
       </div>
     </div>
   );
