@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CustomSelect from "./CustomSelect";
 
 export default function Form() {
@@ -7,6 +7,8 @@ export default function Form() {
   const [selectedOption2, setSelectedOption2] = useState("");
   const [selectedOption3, setSelectedOption3] = useState("");
   const [textareaValue, setTextareaValue] = useState("");
+  const [pokemonList, setPokemonList] = useState([]);
+  const [pokemonData, setPokemonData] = useState([]);
 
   const options1 = [
     { value: "casa1", label: "Casa 1" },
@@ -26,6 +28,38 @@ export default function Form() {
     { value: "casa3", label: "Casa 3" },
   ];
 
+  const fetchAllPokemon = async () => {
+    try {
+      const response = await fetch(
+        "https://pokeapi.co/api/v2/pokemon?limit=100"
+      );
+      const data = await response.json();
+      setPokemonList(data.results);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchAllPokemon();
+  }, []);
+
+  const handleRandomPokemon = () => {
+    const randomPokemonIndexes = [];
+
+    while (randomPokemonIndexes.length < 3) {
+      const randomIndex = Math.floor(Math.random() * pokemonList.length);
+      if (!randomPokemonIndexes.includes(randomIndex)) {
+        randomPokemonIndexes.push(randomIndex);
+      }
+    }
+
+    const randomPokemons = randomPokemonIndexes.map(
+      (index) => pokemonList[index]
+    );
+
+    setPokemonData(randomPokemons);
+  };
   function handleClearForm(e) {
     e.preventDefault();
     setSelectedOption1("");
@@ -45,7 +79,7 @@ export default function Form() {
   };
 
   return (
-    <div className="mt-8 lg:grid lg:grid-cols-2 p-10">
+    <div className="mt-8 lg:grid lg:grid-cols-2 gap-6 p-10">
       <form onSubmit={handleSubmit} className="flex-1 flex flex-col xl:px-20">
         <div className="flex flex-1 flex-col gap-3 p-5 bg-gray-100 rounded-md">
           <label htmlFor="note" className="text-sm font-medium text-slate-500">
@@ -94,6 +128,23 @@ export default function Form() {
           Limpar form
         </button>
       </form>
+      <div>
+        <button
+          type="button"
+          onClick={handleRandomPokemon}
+          className="w-full bg-lime-400 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-lime-500 rounded-md mt-3"
+        >
+          Selecionar Pokémon Aleatórios
+        </button>
+        <div className="mb-4">
+          <h2 className="text-xl font-bold">Pokémon Aleatórios:</h2>
+          <div>
+            {pokemonData.map((pokemon, index) => (
+              <div key={index}>{pokemon.name}</div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
