@@ -6,7 +6,7 @@
 <p>Projeto desenvolvido para a realização do teste prático para vaga de Desenvolvedor Front-end da empresa Best Spaces.</p>
 
 <p align="center">
- <img src="./telaBestSpace.png">
+ <img src="./public/telaBestSpace.png">
 </p>
 
 ## :hammer: Funcionalidades do projeto
@@ -46,9 +46,7 @@
 
 4.Execute o projeto:
 
-    ```bash
     npm run dev
-    ```
 
 ## 🛠️ Tecnologias utilizadas
 
