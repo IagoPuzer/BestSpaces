@@ -9,7 +9,8 @@ export default function PokeCard({ pokemon }) {
         <Image
           src={spriteUrl}
           alt={pokemon.name}
-          layout="fill"
+          width={300}
+          height={300}
           className="rounded-t-xl"
         />
       </div>
