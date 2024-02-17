@@ -6,7 +6,7 @@
 <p>Projeto desenvolvido para a realização do teste prático para vaga de Desenvolvedor Front-end da empresa Best Spaces.</p>
 
 <p align="center">
- <img src="./src/app/assets/images/telaBestSpace.png">
+ <img src="./telaBestSpace.png">
 </p>
 
 ## :hammer: Funcionalidades do projeto
