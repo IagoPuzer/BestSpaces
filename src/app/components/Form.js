@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import CustomSelect from "./CustomSelect";
+import PokeCard from "./PokeCard";
 
 export default function Form() {
   const [selectedOption1, setSelectedOption1] = useState("");
@@ -34,6 +35,9 @@ export default function Form() {
         "https://pokeapi.co/api/v2/pokemon?limit=100"
       );
       const data = await response.json();
+      data.results.forEach((item, index) => {
+        item.id = index + 1;
+      });
       setPokemonList(data.results);
     } catch (error) {
       console.error(error);
@@ -140,7 +144,7 @@ export default function Form() {
           <h2 className="text-xl font-bold">Pokémon Aleatórios:</h2>
           <div>
             {pokemonData.map((pokemon, index) => (
-              <div key={index}>{pokemon.name}</div>
+              <PokeCard key={pokemon.id} pokemon={pokemon} />
             ))}
           </div>
         </div>
