@@ -11,6 +11,7 @@ export default function MainSection() {
   const [pokemonList, setPokemonList] = useState([]);
   const [pokemonData, setPokemonData] = useState([]);
 
+  //Criando as opções para os selects
   const options1 = [
     { value: "casa1", label: "Casa 1" },
     { value: "casa2", label: "Casa 2" },
@@ -18,17 +19,18 @@ export default function MainSection() {
   ];
 
   const options2 = [
-    { value: "casa1", label: "Casa 1" },
-    { value: "casa2", label: "Casa 2" },
-    { value: "casa3", label: "Casa 3" },
+    { value: "apartamento1", label: "Apartamento 1" },
+    { value: "apartamento2", label: "Apartamento 2" },
+    { value: "apartamento3", label: "Apartamento 3" },
   ];
 
   const options3 = [
-    { value: "casa1", label: "Casa 1" },
-    { value: "casa2", label: "Casa 2" },
-    { value: "casa3", label: "Casa 3" },
+    { value: "loja1", label: "Loja 1" },
+    { value: "loja2", label: "Loja 2" },
+    { value: "loja3", label: "Loja 3" },
   ];
 
+  //Chamando a api PokeApi
   const fetchAllPokemon = async () => {
     try {
       const response = await fetch(
@@ -48,6 +50,7 @@ export default function MainSection() {
     fetchAllPokemon();
   }, []);
 
+  //Fazendo a função que faz com que a escolha dos pokemons dentro da api seja de forma randomica
   const handleRandomPokemon = () => {
     const randomPokemonIndexes = [];
 
@@ -64,6 +67,8 @@ export default function MainSection() {
 
     setPokemonData(randomPokemons);
   };
+
+  //Criando a função para limpar o formulário
   function handleClearForm(e) {
     e.preventDefault();
     setSelectedOption1("");
@@ -72,6 +77,7 @@ export default function MainSection() {
     setTextareaValue("");
   }
 
+  //função de envio de submit do form
   const handleSubmit = (e) => {
     e.preventDefault();
 
