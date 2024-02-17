@@ -26,6 +26,14 @@ export default function Form() {
     { value: "casa3", label: "Casa 3" },
   ];
 
+  function handleClearForm(e) {
+    e.preventDefault();
+    setSelectedOption1("");
+    setSelectedOption2("");
+    setSelectedOption3("");
+    setTextareaValue("");
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -77,6 +85,13 @@ export default function Form() {
           className="w-full bg-lime-400 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-lime-500 rounded-md mt-3"
         >
           Enviar para o console
+        </button>
+        <button
+          type="button"
+          onClick={handleClearForm}
+          className="w-full bg-lime-400 py-4 text-center text-sm text-lime-950 outline-none font-medium hover:bg-lime-500 rounded-md mt-3"
+        >
+          Limpar form
         </button>
       </form>
     </div>
