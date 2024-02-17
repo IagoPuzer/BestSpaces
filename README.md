@@ -34,15 +34,21 @@
 
 2. Acesse o diretório do projeto:
 
+   ```bash
    cd nome-do-projeto
+   ```
 
 3. Instale as dependências:
 
+   ```bash
    npm install
+   ```
 
 4.Execute o projeto:
 
+    ```bash
     npm run dev
+    ```
 
 ## 🛠️ Tecnologias utilizadas
 
