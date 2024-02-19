@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import CustomSelect from "./CustomSelect";
 import PokeCard from "./PokeCard";
+import { toast } from "sonner";
 
 export default function MainSection() {
   const [selectedOption1, setSelectedOption1] = useState("");
@@ -86,6 +87,8 @@ export default function MainSection() {
     console.log("Selected Option 2:", selectedOption2);
     console.log("Selected Option 3:", selectedOption3);
     console.log("Textarea Value:", textareaValue);
+
+    toast.success("Dados enviados para o console");
   };
 
   return (
